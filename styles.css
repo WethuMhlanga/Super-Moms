@@ -52,11 +52,11 @@ main {
 
 /* Specific styles for the About Us hero section */
 .about-hero {
-    background: url('https://github.com/WethuMhlanga/Super-Moms/blob/main/img/super-moms-about.png') center center/cover no-repeat;
+    background: url('../Super-Moms/img/image7.jpeg') center center/cover no-repeat;
 }
 
 .sessions-hero {
-    background: url('/Super-Moms/img/image7.jpeg') center center/cover no-repeat;
+    background: url('../Super-Moms/img/image7.jpeg') center center/cover no-repeat;
 }
 
 
