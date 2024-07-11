@@ -52,7 +52,7 @@ main {
 
 /* Specific styles for the About Us hero section */
 .about-hero {
-    background: url('/Users/wethu/Desktop/Super Moms/img/super-moms-about.png') center center/cover no-repeat;
+    background: url('../img/super-moms-about.png') center center/cover no-repeat;
 }
 
 /* Specific styles for the Sessions hero section */
@@ -580,43 +580,76 @@ footer {
 
 /*This is for the contact us cards*/
 
-.contact-info, .donation-info {
-    margin-bottom: 40px;
-    margin-bottom: 20px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.contact-info {
     text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 1200px; /* Adjust max width as needed */
 }
-
 
 .founders {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
 }
 
 .founder {
-    text-align: center;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center; /* Center text in the founder card */
+    width: calc(50% - 20px); /* 50% width for two columns with a gap */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    box-sizing: border-box; /* Ensure padding is included in the width */
 }
 
-.founder-avatar img {
-    width: 230px; /* Adjust image size to fit the circle */
-    height: 250px; /* Adjust image size to fit the circle */
-    border-radius: 50%;
-    margin-bottom: 10px;
+.founder:hover {
+    transform: translateY(-5px);
 }
 
-.founder-details h4 {
-    font-size: 1.5em;
+.founder-avatar {
+    display: flex;
+    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center the image vertically */
     margin-bottom: 20px;
 }
 
-.founder-details p {
-    font-size: 1em;
-    margin: 0;
+.founder-avatar img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
 }
+
+.founder-details h4 {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: #333;
+}
+
+.founder-details p {
+    font-size: 1rem;
+    color: #555;
+    margin: 5px 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .founder {
+        width: 100%; /* Full width on smaller screens */
+    }
+
+    .founder-details h4 {
+        font-size: 1rem;
+    }
+
+    .founder-details p {
+        font-size: 0.9rem;
+    }
+}
+
 
 .donation-info {
     text-align: center;
