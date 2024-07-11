@@ -429,7 +429,7 @@ footer {
         display: flex; /* Show menu icon on smaller screens */
         position: absolute;
         top: 40px; /* Adjust top position as needed */
-        left:200px; /* Adjust right position as needed */
+        left: 50px; /* Adjust right position as needed */
         z-index: 1100; /* Ensure it's above other elements */
     }
 
