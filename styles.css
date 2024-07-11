@@ -52,13 +52,13 @@ main {
 
 /* Specific styles for the About Us hero section */
 .about-hero {
-    background: url('../img/super-moms-about.png') center center/cover no-repeat;
+    background: url('/Super-Moms/img/super-moms-about.png') center center/cover no-repeat;
 }
 
-/* Specific styles for the Sessions hero section */
 .sessions-hero {
-    background: url('../img/image7.jpeg') center center/cover no-repeat;
+    background: url('/Super-Moms/img/image7.jpeg') center center/cover no-repeat;
 }
+
 
 .hero-content {
     position: relative;
