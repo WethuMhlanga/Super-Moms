@@ -52,7 +52,7 @@ main {
 
 /* Specific styles for the About Us hero section */
 .about-hero {
-    background: url('../img/super-moms-about.png') center center/cover no-repeat;
+    background: url('/Users/wethu/Desktop/Super Moms/img/super-moms-about.png') center center/cover no-repeat;
 }
 
 /* Specific styles for the Sessions hero section */
