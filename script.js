@@ -1,12 +1,13 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const menuIcon = document.getElementById('menu-icon');
-    const navLinks = document.getElementById('nav-links').querySelector('.nav-list');
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("JavaScript loaded!");
 
+    // Toggle navigation menu on menu icon click
+    const menuIcon = document.querySelector('.menu-icon');
     menuIcon.addEventListener('click', function() {
+        const navLinks = document.getElementById('nav-links');
         navLinks.classList.toggle('show');
-        menuIcon.classList.toggle('active');
     });
-
+    
     let slideIndex = 0;
     showSlides();
 
@@ -26,6 +27,24 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(showSlides, 4000); // Change image every 4 seconds
     }
 
+    // Reference to the comments in the Firebase database
+    const commentsRef = firebase.database().ref('comments');
+
+    // Function to render comments from Firebase
+    function renderComments(snapshot) {
+        const commentsDisplay = document.getElementById('comments-display');
+        commentsDisplay.innerHTML = ''; // Clear the current comments
+        snapshot.forEach(function(childSnapshot) {
+            const commentData = childSnapshot.val();
+            const commentDiv = createCommentElement(commentData.text, commentData.image, childSnapshot.key);
+            commentsDisplay.appendChild(commentDiv);
+        });
+        updateCommentCount();
+    }
+
+    // Fetch comments from Firebase
+    commentsRef.on('value', renderComments);
+
     document.getElementById('comment-form').addEventListener('submit', function(e) {
         e.preventDefault();
 
@@ -37,6 +56,28 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
+        const newCommentRef = commentsRef.push();
+        if (pictureFile) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const commentData = {
+                    text: commentText,
+                    image: e.target.result
+                };
+                newCommentRef.set(commentData);
+            }
+            reader.readAsDataURL(pictureFile);
+        } else {
+            newCommentRef.set({
+                text: commentText,
+                image: null
+            });
+        }
+
+        document.getElementById('comment-form').reset();
+    });
+
+    function createCommentElement(text, imageUrl, commentId) {
         const commentDiv = document.createElement('div');
         commentDiv.classList.add('comment');
 
@@ -50,43 +91,36 @@ document.addEventListener('DOMContentLoaded', function() {
         const commentContentDiv = document.createElement('div');
         commentContentDiv.classList.add('comment-content');
         const commentParagraph = document.createElement('p');
-        commentParagraph.textContent = commentText;
+        commentParagraph.textContent = text;
         commentContentDiv.appendChild(commentParagraph);
 
-        if (pictureFile) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const img = document.createElement('img');
-                img.src = e.target.result;
-                commentContentDiv.appendChild(img);
-            }
-            reader.readAsDataURL(pictureFile);
+        if (imageUrl) {
+            const img = document.createElement('img');
+            img.src = imageUrl;
+            commentContentDiv.appendChild(img);
         }
 
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'Delete';
         deleteButton.classList.add('delete-button');
         deleteButton.addEventListener('click', function() {
-            commentDiv.remove();
-            updateCommentCount();
+            const commentRef = firebase.database().ref('comments/' + commentId);
+            commentRef.remove();
         });
         commentDiv.appendChild(profileIconDiv);
         commentDiv.appendChild(commentContentDiv);
         commentDiv.appendChild(deleteButton);
 
-        const commentsDisplay = document.getElementById('comments-display');
-        commentsDisplay.appendChild(commentDiv);
-
-        updateCommentCount();
-
-        document.getElementById('comment-form').reset();
-    });
+        return commentDiv;
+    }
 
     function updateCommentCount() {
         const commentsDisplay = document.getElementById('comments-display');
         const comments = commentsDisplay.getElementsByClassName('comment');
         while (comments.length > 5) {
-            comments[0].remove();
+            const oldestCommentId = comments[0].querySelector('.delete-button').getAttribute('data-id');
+            const oldestCommentRef = firebase.database().ref('comments/' + oldestCommentId);
+            oldestCommentRef.remove();
         }
     }
 });
