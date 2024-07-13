@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     
     let slideIndex = 0;
-    showSlides();zz
+    showSlides();
 
     function showSlides() {
         let slides = document.getElementsByClassName("slide");
