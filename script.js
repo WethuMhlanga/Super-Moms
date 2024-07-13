@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     
     let slideIndex = 0;
-    showSlides();
+    showSlides();zz
 
     function showSlides() {
         let slides = document.getElementsByClassName("slide");
@@ -27,24 +27,6 @@ document.addEventListener("DOMContentLoaded", function() {
         setTimeout(showSlides, 4000); // Change image every 4 seconds
     }
 
-    // Reference to the comments in the Firebase database
-    const commentsRef = firebase.database().ref('comments');
-
-    // Function to render comments from Firebase
-    function renderComments(snapshot) {
-        const commentsDisplay = document.getElementById('comments-display');
-        commentsDisplay.innerHTML = ''; // Clear the current comments
-        snapshot.forEach(function(childSnapshot) {
-            const commentData = childSnapshot.val();
-            const commentDiv = createCommentElement(commentData.text, commentData.image, childSnapshot.key);
-            commentsDisplay.appendChild(commentDiv);
-        });
-        updateCommentCount();
-    }
-
-    // Fetch comments from Firebase
-    commentsRef.on('value', renderComments);
-
     document.getElementById('comment-form').addEventListener('submit', function(e) {
         e.preventDefault();
 
@@ -56,28 +38,6 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        const newCommentRef = commentsRef.push();
-        if (pictureFile) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const commentData = {
-                    text: commentText,
-                    image: e.target.result
-                };
-                newCommentRef.set(commentData);
-            }
-            reader.readAsDataURL(pictureFile);
-        } else {
-            newCommentRef.set({
-                text: commentText,
-                image: null
-            });
-        }
-
-        document.getElementById('comment-form').reset();
-    });
-
-    function createCommentElement(text, imageUrl, commentId) {
         const commentDiv = document.createElement('div');
         commentDiv.classList.add('comment');
 
@@ -91,36 +51,43 @@ document.addEventListener("DOMContentLoaded", function() {
         const commentContentDiv = document.createElement('div');
         commentContentDiv.classList.add('comment-content');
         const commentParagraph = document.createElement('p');
-        commentParagraph.textContent = text;
+        commentParagraph.textContent = commentText;
         commentContentDiv.appendChild(commentParagraph);
 
-        if (imageUrl) {
-            const img = document.createElement('img');
-            img.src = imageUrl;
-            commentContentDiv.appendChild(img);
+        if (pictureFile) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = document.createElement('img');
+                img.src = e.target.result;
+                commentContentDiv.appendChild(img);
+            }
+            reader.readAsDataURL(pictureFile);
         }
 
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'Delete';
         deleteButton.classList.add('delete-button');
         deleteButton.addEventListener('click', function() {
-            const commentRef = firebase.database().ref('comments/' + commentId);
-            commentRef.remove();
+            commentDiv.remove();
+            updateCommentCount();
         });
         commentDiv.appendChild(profileIconDiv);
         commentDiv.appendChild(commentContentDiv);
         commentDiv.appendChild(deleteButton);
 
-        return commentDiv;
-    }
+        const commentsDisplay = document.getElementById('comments-display');
+        commentsDisplay.appendChild(commentDiv);
+
+        updateCommentCount();
+
+        document.getElementById('comment-form').reset();
+    });
 
     function updateCommentCount() {
         const commentsDisplay = document.getElementById('comments-display');
         const comments = commentsDisplay.getElementsByClassName('comment');
         while (comments.length > 5) {
-            const oldestCommentId = comments[0].querySelector('.delete-button').getAttribute('data-id');
-            const oldestCommentRef = firebase.database().ref('comments/' + oldestCommentId);
-            oldestCommentRef.remove();
+            comments[0].remove();
         }
     }
 });
