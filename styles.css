@@ -167,7 +167,7 @@ main {
 
 /* Specific styles for the About Us hero section */
 .about-hero {
-    background: url('../img/super-moms-logo.jpeg') center center/cover no-repeat;
+    background: url('/img/super-moms-logo.jpeg') center center/cover no-repeat;
 }
 
 /* Specific styles for the Sessions hero section */
