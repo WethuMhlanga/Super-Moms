@@ -172,7 +172,7 @@ main {
 
 /* Specific styles for the Sessions hero section */
 .sessions-hero {
-    background: url('img/image7.jpeg') center center/cover no-repeat;
+    background: url('../img/image7.jpeg') center center/cover no-repeat;
 }
 
 .hero-content {
