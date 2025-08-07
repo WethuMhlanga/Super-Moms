@@ -3,128 +3,364 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Super Moms Home Page</title>
-    <link rel="icon" type="image/x-icon" href="img/super-moms-logo.jpeg">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Super Moms - Healthy Mom, Healthy Baby</title>
+    <meta name="description" content="Super Moms is a supportive community for mothers providing resources, support, and connections throughout your motherhood journey. Join our network of strong and inspiring mothers.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <img src="img/super-moms-logo.jpeg" alt="NGO Logo">
-            </div>
-            <div class="menu-icon" id="menu-icon">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="html/about.html">About Us</a></li>
-                <li><a href="html/sessions.html">Sessions</a></li>
-                <li><a href="html/contact.html">Contact Us</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <section id="home" class="intro-section">
-            <div class="slideshow-container">
-                <div class="slide fade">
-                    <div class="slide-content">
-                        <h1>Welcome to Super Moms</h1>
-                        <p>Your community of strong and inspiring mothers.</p>
-                    </div>
-                    <img src="img/image1.jpeg" alt="Slide 1">
+    <!-- Navigation -->
+    <nav id="navbar" class="floating-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-container">
+                    <img src="img/super-moms-logo.jpeg" alt="Super Moms Logo" class="logo-image">
                 </div>
-                <div class="slide fade">
-                    <div class="slide-content">
-                        <h1>Welcome to Super Moms</h1>
-                        <p>Your community of strong and inspiring mothers.</p>
-                    </div>
-                    <img src="img/image2.jpeg" alt="Slide 2">
-                </div>
-                <div class="slide fade">
-                    <div class="slide-content">
-                        <h1>Welcome to Super Moms</h1>
-                        <p>Your community of strong and inspiring mothers.</p>
-                    </div>
-                    <img src="img/image6.jpeg" alt="Slide 3">
+                <div class="logo-text">
+                    <h1>SUPER MOMS</h1>
+                    <p>Healthy Mom, Healthy baby</p>
                 </div>
             </div>
-            <div style="text-align:center">
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
+            
+            <div class="nav-links">
+                <button onclick="scrollToSection('home')">Home</button>
+                <button onclick="scrollToSection('mission')">Mission</button>
+                <button onclick="scrollToSection('values')">Values</button>
+                <button onclick="scrollToSection('stories')">Stories</button>
+                <button onclick="scrollToSection('founders')">Founders</button>
             </div>
-        </section>
+            
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
         
-        <section id="content">
-            <!-- Rest of your content sections -->
-            <section id="mission">
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu">
+            <button onclick="scrollToSection('home')">Home</button>
+            <button onclick="scrollToSection('mission')">Mission</button>
+            <button onclick="scrollToSection('values')">Values</button>
+            <button onclick="scrollToSection('stories')">Stories</button>
+            <button onclick="scrollToSection('founders')">Founders</button>
+        </div>
+    </nav>
+
+    <!-- Hero Slideshow -->
+    <section id="home" class="slideshow-container">
+        <div class="slide active" style="background-image: url('https://wethumhlanga.github.io/Super-Moms/img/image1.jpeg')">
+            <div class="slide-content">
+                <div class="slide-text">
+                    <h1 class="slide-title">Welcome to Super Moms</h1>
+                    <p class="slide-subtitle">Your community of strong and inspiring mothers</p>
+                    <div class="slide-buttons">
+                        <button class="btn-primary pulse-glow">Join Our Community</button>
+                        <button class="btn-secondary">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" style="background-image: url('https://wethumhlanga.github.io/Super-Moms/img/image2.jpeg')">
+            <div class="slide-content">
+                <div class="slide-text">
+                    <h1 class="slide-title">Empowering Mothers</h1>
+                    <p class="slide-subtitle">Supporting every step of your motherhood journey</p>
+                    <div class="slide-buttons">
+                        <button class="btn-primary pulse-glow">Get Support</button>
+                        <button class="btn-secondary">View Resources</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" style="background-image: url('https://wethumhlanga.github.io/Super-Moms/img/image6.jpeg')">
+            <div class="slide-content">
+                <div class="slide-text">
+                    <h1 class="slide-title">Building Communities</h1>
+                    <p class="slide-subtitle">Connecting mothers for mutual support and growth</p>
+                    <div class="slide-buttons">
+                        <button class="btn-primary pulse-glow">Connect Now</button>
+                        <button class="btn-secondary">Our Impact</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation Controls -->
+        <button class="slide-nav prev-btn" onclick="changeSlide(-1)">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="slide-nav next-btn" onclick="changeSlide(1)">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        
+        <!-- Progress Indicators -->
+        <div class="slide-indicators">
+            <button class="indicator active" onclick="goToSlide(0)"></button>
+            <button class="indicator" onclick="goToSlide(1)"></button>
+            <button class="indicator" onclick="goToSlide(2)"></button>
+        </div>
+        
+        <!-- Play/Pause Control -->
+        <button class="play-pause-btn" onclick="toggleAutoplay()">
+            <i id="play-pause-icon" class="fas fa-pause"></i>
+        </button>
+    </section>
+
+    <!-- Mission Section -->
+    <section id="mission" class="mission-section">
+        <div class="container">
+            <div class="mission-content fade-in-element">
                 <h2>Our Mission</h2>
-                <p>To support, empower, and connect mothers through various resources, events, and a strong community network.</p>
-            </section>
-        
-            <!-- WHYS section -->
-            <section id="why-section">
+                <p>To support, empower, and connect mothers through various resources, events, and a strong community network. We believe every mother deserves access to the support and knowledge she needs to thrive.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values Section -->
+    <section id="values" class="values-section">
+        <div class="container">
+            <div class="section-header fade-in-element">
                 <h2>Our Core Values</h2>
-                <div class="card-container">
-                    <div class="card">
-                        <i class="fas fa-child" style="font-size:36px"></i>
-                        <h3>Support Pregnant Women</h3>
-                        <p>We aim to provide support and resources to pregnant women during their journey.</p>
+                <p>These fundamental principles guide everything we do at Super Moms</p>
+            </div>
+            
+            <div class="values-grid">
+                <div class="value-card fade-in-element" data-delay="0">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
                     </div>
-                    <div class="card">
-                        <i class="fas fa-female" style="font-size:36px"></i>
-                        <h3>Empower New Mothers</h3>
-                        <p>We empower new mothers with knowledge and resilience for confident motherhood.</p>
-                    </div>
-                    <div class="card">
-                        <i class="fas fa-wifi" style="font-size:36px"></i>
-                        <h3>Build Strong Communities</h3>
-                        <p>We connect mothers to build a strong community network for mutual support.</p>
-                    </div>
-                    <div class="card">
-                        <i class="fas fa-book" style="font-size:36px"></i>
-                        <h3>Educate Teen Mothers</h3>
-                        <p>We educate and empower teenage mothers to navigate motherhood with confidence.</p>
-                    </div>
+                    <h3>Support Pregnant Women</h3>
+                    <p>We aim to provide support and resources to pregnant women during their journey, ensuring they feel confident and prepared.</p>
                 </div>
-            </section>
+                
+                <div class="value-card fade-in-element" data-delay="200">
+                    <div class="value-icon">
+                        <i class="fas fa-female"></i>
+                    </div>
+                    <h3>Empower New Mothers</h3>
+                    <p>We empower new mothers with knowledge and resilience for confident motherhood, providing tools for success.</p>
+                </div>
+                
+                <div class="value-card fade-in-element" data-delay="400">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Build Strong Communities</h3>
+                    <p>We connect mothers to build a strong community network for mutual support, friendship, and shared experiences.</p>
+                </div>
+                
+                <div class="value-card fade-in-element" data-delay="600">
+                    <div class="value-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Educate Teen Mothers</h3>
+                    <p>We educate and empower teenage mothers to navigate motherhood with confidence, providing age-appropriate guidance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <section id="comments-section">
+    <!-- Testimonials Section -->
+    <section id="stories" class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
                 <h2>Our Stories</h2>
-                <div class="comment">
-                    <blockquote>"Joining Super Moms has been a life-changing experience. The support and love from this community are unmatched." - Jane Doe</blockquote>
-                </div>
-                <div class="comment">
-                    <blockquote>"I found lifelong friends and invaluable advice here. It's more than just a group; it's a family." - Sarah Smith</blockquote>
-                </div>
-                <div class="comment">
-                    <blockquote>"Super Moms helped me navigate motherhood with confidence. The resources and encouragement are phenomenal." - Emily Johnson</blockquote>
-                </div>
-            </section>
+                <p>Hear from the amazing mothers who are part of our community</p>
+            </div>
             
+            <div class="testimonial-container">
+                <div class="testimonial active">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="testimonial-text">"Joining Super Moms has been a life-changing experience. The support and love from this community are unmatched."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <p class="author-name">Jane Doe</p>
+                            <p class="author-title">Mother of Two</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="testimonial-text">"I found lifelong friends and invaluable advice here. It's more than just a group; it's a family."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <p class="author-name">Sarah Smith</p>
+                            <p class="author-title">New Mother</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="testimonial-text">"Super Moms helped me navigate motherhood with confidence. The resources and encouragement are phenomenal."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <p class="author-name">Emily Johnson</p>
+                            <p class="author-title">Teen Mother</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
             
-            
-        </section>
-    </main>
+            <!-- Testimonial Navigation -->
+            <div class="testimonial-nav">
+                <button class="testimonial-nav-btn" onclick="changeTestimonial(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="testimonial-nav-btn" onclick="changeTestimonial(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
 
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2024 Super Moms. All rights reserved.</p>
-            <p>Follow Us:</p>
-            <ul class="social-icons">
-                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-            </ul>
+    <!-- Founders Section -->
+    <section id="founders" class="founders-section">
+        <div class="container">
+            <div class="section-header fade-in-element">
+                <h2>Meet Our Founders</h2>
+                <p>The visionary women behind Super Moms who are dedicated to supporting mothers everywhere</p>
+            </div>
+            
+            <div class="founders-grid">
+                <div class="founder-card fade-in-element" data-delay="0">
+                    <div class="founder-image">
+                        <img src="img/founder.jpeg" alt="Carol Sithole">
+                    </div>
+                    <h3>Carol Sithole</h3>
+                    <p class="founder-title">Founder of Super Moms</p>
+                    <p class="founder-credentials">United States International University Africa - Bachelor of Arts in Psychology</p>
+                    <p class="founder-bio">Giving back to the community through public health has always been my number one goal.</p>
+                    <div class="founder-specialties">
+                        <p class="specialties-label">Areas of Expertise:</p>
+                        <div class="specialties-tags">
+                            <span class="specialty-tag">Community Health</span>
+                            <span class="specialty-tag">Mentaly Health</span>
+                            <span class="specialty-tag">Public Health</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="founder-card fade-in-element" data-delay="200">
+                    <div class="founder-image">
+                        <img src="img/co-founder.jpeg" alt="Angel Mandlazi">
+                    </div>
+                    <h3>Angel Mandlazi</h3>
+                    <p class="founder-title">Co-Founder of Super Moms</p>
+                    <p class="founder-credentials"> University of Cape Town - Bachelor of Medicine and Bachelor of Surgery</p>
+                    <p class="founder-bio">I just love helping the community.</p>
+                    <div class="founder-specialties">
+                        <p class="specialties-label">Areas of Expertise:</p>
+                        <div class="specialties-tags">
+                            <span class="specialty-tag">Maternal Health</span>
+                            <span class="specialty-tag">Community Medicine</span>
+                            <span class="specialty-tag">Public Health</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content fade-in-element">
+                <h2>Ready to Join Our Community?</h2>
+                <p>Become part of a supportive network where every mother's journey is valued, celebrated, and supported.</p>
+                <div class="cta-buttons">
+                    <button class="btn-primary">Join Super Moms Today</button>
+                    <button class="btn-outline">Learn More About Us</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-container">
+                            <img src="img/super-moms-logo.jpeg" alt="Super Moms Logo" class="footer-logo-image">
+                        </div>
+                        <div class="logo-text">
+                            <h3>SUPER MOMS</h3>
+                            <p>Healthy Mom, Healthy baby</p>
+                        </div>
+                    </div>
+                    <p>Empowering mothers through community, support, and shared experiences.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><button onclick="scrollToSection('home')">Home</button></li>
+                        <li><button onclick="scrollToSection('mission')">Mission</button></li>
+                        <li><button onclick="scrollToSection('values')">Values</button></li>
+                        <li><button onclick="scrollToSection('stories')">Stories</button></li>
+                        <li><button onclick="scrollToSection('founders')">Founders</button></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-support">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Resources</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Super Moms. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
         </div>
     </footer>
-    
-    <!-- Add Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css">
-    <script src="scripts.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
