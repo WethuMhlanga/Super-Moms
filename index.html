@@ -35,6 +35,8 @@
                 <button onclick="scrollToSection('values')">Values</button>
                 <button onclick="scrollToSection('stories')">Stories</button>
                 <button onclick="scrollToSection('founders')">Founders</button>
+                <!-- Donation Button -->
+                <a href="#donate" class="btn-primary">Donate</a>
             </div>
             
             <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
@@ -49,45 +51,49 @@
             <button onclick="scrollToSection('values')">Values</button>
             <button onclick="scrollToSection('stories')">Stories</button>
             <button onclick="scrollToSection('founders')">Founders</button>
+            <!-- Donation Button for Mobile -->
+            <a href="#donate" class="btn-primary">Donate</a>
         </div>
     </nav>
 
     <!-- Hero Slideshow -->
     <section id="home" class="slideshow-container">
-        <div class="slide active" style="background-image: url('https://wethumhlanga.github.io/Super-Moms/img/image1.jpeg')">
+        <div class="slide active" style="background-image: url('img/image1.jpeg')">
             <div class="slide-content">
                 <div class="slide-text">
                     <h1 class="slide-title">Welcome to Super Moms</h1>
                     <p class="slide-subtitle">Your community of strong and inspiring mothers</p>
                     <div class="slide-buttons">
-                        <button class="btn-primary pulse-glow">Join Our Community</button>
-                        <button class="btn-secondary">Learn More</button>
+                        <button class="btn-primary pulse-glow"><a href="#donate" class="btn-primary">Connect Now</a></button>
+                        <button class="btn-secondary" onclick="scrollToSection('stories')">Our Impact</button>
+                    </div>
                     </div>
                 </div>
             </div>
         </div>
         
-        <div class="slide" style="background-image: url('https://wethumhlanga.github.io/Super-Moms/img/image2.jpeg')">
+        <div class="slide" style="background-image: url('img/image2.jpeg')">
             <div class="slide-content">
                 <div class="slide-text">
                     <h1 class="slide-title">Empowering Mothers</h1>
                     <p class="slide-subtitle">Supporting every step of your motherhood journey</p>
                     <div class="slide-buttons">
-                        <button class="btn-primary pulse-glow">Get Support</button>
-                        <button class="btn-secondary">View Resources</button>
+                        <button class="btn-primary pulse-glow"><a href="#donate" class="btn-primary">Connect Now</a></button>
+                        <button class="btn-secondary" onclick="scrollToSection('stories')">Our Impact</button>
                     </div>
                 </div>
             </div>
         </div>
         
-        <div class="slide" style="background-image: url('https://wethumhlanga.github.io/Super-Moms/img/image6.jpeg')">
+        <div class="slide" style="background-image: url('img/image6.jpeg')">
             <div class="slide-content">
                 <div class="slide-text">
                     <h1 class="slide-title">Building Communities</h1>
                     <p class="slide-subtitle">Connecting mothers for mutual support and growth</p>
                     <div class="slide-buttons">
-                        <button class="btn-primary pulse-glow">Connect Now</button>
-                        <button class="btn-secondary">Our Impact</button>
+                       <button class="btn-primary pulse-glow"><a href="#donate" class="btn-primary">Connect Now</a></button>
+                        <button class="btn-secondary" onclick="scrollToSection('stories')">Our Impact</button>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -173,10 +179,10 @@
         <div class="container">
             <div class="section-header">
                 <h2>Our Stories</h2>
-                <p>Hear from the amazing mothers who are part of our community</p>
+                <p>Hear from the amazing mothers who are part of our Super Moms community</p>
             </div>
             
-            <div class="testimonial-container">
+            <!-- <div class="testimonial-container">
                 <div class="testimonial active">
                     <div class="quote-icon">
                         <i class="fas fa-quote-left"></i>
@@ -226,7 +232,7 @@
                 </div>
             </div>
             
-            <!-- Testimonial Navigation -->
+             Testimonial Navigation 
             <div class="testimonial-nav">
                 <button class="testimonial-nav-btn" onclick="changeTestimonial(-1)">
                     <i class="fas fa-chevron-left"></i>
@@ -235,7 +241,32 @@
                     <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
+        </div> -->
+
+        <!-- Right Column: PDF -->
+        
+
+        <div class="testimonial-container">
+                <div class="testimonial active">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <div class="pdf-container" style="flex:1; min-width:300px;">
+                    <object data="pdfs/Super Moms' Testimonials.pdf" 
+                    type="application/pdf" 
+                    width="100%" 
+                    height="600px"
+                    style="border:1px solid #ccc; border-radius:8px; display:block;">
+            </object>
         </div>
+                    <div class="testimonial-author">
+                        </div>
+                            <br>
+                            <p>Your browser does not support PDFs? Don't worry, you can download the PDF here: 
+                            <a href="pdfs/Super Moms' Testimonials.pdf">Download the PDF</a>.
+                            </p>
+                    </div>
+                </div>
     </section>
 
     <!-- Founders Section -->
@@ -300,6 +331,37 @@
         </div>
     </section>
 
+    <!-- Donation Section -->
+    <section id="donate" class="donation-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Support Super Moms</h2>
+                <p>Your contributions help us empower mothers in our community. Every donation counts!</p>
+            </div>
+
+            <div class="donation-box">
+                <p><strong>Bank Name:</strong> XYZ Bank</p>
+                <p><strong>Account Name:</strong> Super Moms Community</p>
+                <p><strong>Account Number:</strong> <span id="account-number">1234567890</span></p>
+
+                <div class="donation-buttons">
+                    <!-- Copy Account Number -->
+                    <button class="btn-primary" id="copy-btn">Copy Account Number</button>
+
+                    <!-- Donate Now Button -->
+                    <a class="btn-primary" href="https://www.xyzbank.com/online-payment?acc=1234567890" target="_blank">
+                        Donate Now
+                    </a>
+                </div>
+
+                <p class="donation-note">
+                    After donating, kindly share your confirmation email at 
+                    <a href="mailto:Carol@imaginescholar.org">Carol@imaginescholar.org</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
 
 
     <!-- Footer -->
@@ -308,9 +370,6 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <div class="footer-logo">
-                        <div class="logo-container">
-                            <img src="img/super-moms-logo.jpeg" alt="Super Moms Logo" class="footer-logo-image">
-                        </div>
                         <div class="logo-text">
                             <h3>SUPER MOMS</h3>
                             <p>Healthy Mom, Healthy baby</p>

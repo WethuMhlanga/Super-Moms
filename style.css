@@ -7,7 +7,7 @@
 
 :root {
     /* Super Moms Brand Colors */
-    --navy: hsl(218, 100%, 25%);
+    --navy: hsla(23, 100%, 36%, 0.825);
     --charcoal: hsl(0, 0%, 15%);
     --light-grey: hsl(0, 0%, 96%);
     --white: hsl(0, 0%, 100%);
@@ -118,6 +118,7 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
     padding: 0.5rem 0;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .nav-links button:hover {
@@ -162,6 +163,7 @@ body {
     cursor: pointer;
     padding: 0.75rem 0;
     transition: color 0.3s ease;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .mobile-menu button:hover {
@@ -200,7 +202,8 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, var(--navy) 30%, rgba(55, 65, 81, 0.5));
+    background: linear-gradient(50deg, hsla(23, 98%, 41%, 0.764) 30%, 
+        rgba(255, 201, 147, 0.3) 100%);
     z-index: 1;
 }
 
@@ -270,7 +273,7 @@ body {
 }
 
 .btn-primary:hover {
-    background: hsl(218, 100%, 20%);
+    background: hsla(38, 100%, 56%, 0.453);
     transform: scale(1.05);
 }
 
@@ -476,7 +479,7 @@ body {
 }
 
 .value-card:hover .value-icon {
-    transform: scale(1.1) rotate(360deg);
+    transform: scale(1.1);
 }
 
 .value-icon i {
@@ -499,7 +502,7 @@ body {
 /* Testimonials Section */
 .testimonials-section {
     padding: 6rem 0;
-    background: linear-gradient(135deg, var(--navy) 0%, hsl(218, 100%, 30%) 100%);
+    background: linear-gradient(135deg, var(--navy) 0%, hsl(53, 83%, 40%) 100%);
     color: var(--white);
 }
 
@@ -701,7 +704,7 @@ body {
 /* Contact Section */
 .contact-section {
     padding: 6rem 0;
-    background: linear-gradient(135deg, var(--navy) 0%, hsl(218, 100%, 30%) 100%);
+    background: linear-gradient(135deg, var(--navy) 0%, hsl(53, 83%, 40%) 100%);
     color: var(--white);
     text-align: center;
 }
@@ -875,8 +878,8 @@ body {
 }
 
 .social-link:hover {
-    background: hsl(218, 100%, 35%);
-    transform: scale(1.1) rotate(360deg);
+    background: hsl(31, 72%, 71%);
+    transform: scale(1.1);
 }
 
 .footer-bottom {
@@ -976,5 +979,89 @@ body {
     
     .founder-card {
         padding: 1.5rem;
+    }
+}
+
+/* Donation Section */
+.donation-section {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, var(--navy) 0%, hsl(53, 83%, 40%) 100%);
+    color: var(--white);
+    text-align: center;
+}
+
+.donation-section .section-header h2 {
+    font-size: clamp(2.5rem, 5vw, 3rem);
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+
+.donation-section .section-header p {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 3rem;
+}
+
+.donation-box {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: var(--radius);
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.donation-box p {
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+}
+
+#copy-btn {
+    padding: 1rem 2rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    background: var(--navy);
+    color: var(--white);
+}
+
+#copy-btn:hover {
+    background: hsla(38, 100%, 56%, 0.453);
+    transform: scale(1.05);
+}
+
+.donation-note {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-top: 1rem;
+}
+
+.donation-note a {
+    color: var(--white);
+    text-decoration: underline;
+}
+
+.donation-note a:hover {
+    color: hsla(38, 100%, 56%, 0.453);
+    transform: scale(1.05);
+}
+
+.donation-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+@media (min-width: 640px) {
+    .donation-buttons {
+        flex-direction: row;
+        justify-content: center;
     }
 }
