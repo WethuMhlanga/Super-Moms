@@ -499,6 +499,70 @@ body {
     line-height: 1.6;
 }
 
+/* Our Programs Section */
+.programs-section {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, var(--light-grey) 0%, var(--white) 100%);
+}
+
+.programs-grid {
+    display: grid;
+    gap: 2.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.program-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(0);
+}
+
+.program-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 30px 60px rgba(30, 58, 138, 0.25);
+}
+
+/* Program Image */
+.program-image {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+}
+
+.program-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.program-card:hover .program-image img {
+    transform: scale(1.08);
+}
+
+/* Program Content */
+.program-content {
+    padding: 2rem;
+    text-align: center;
+}
+
+.program-content h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 1rem;
+}
+
+.program-content p {
+    color: var(--charcoal);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+
 /* Testimonials Section */
 .testimonials-section {
     padding: 6rem 0;
